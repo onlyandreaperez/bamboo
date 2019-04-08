@@ -49,17 +49,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let touch = touches.first
-        let touchLocation = touch!.location(in: self)
-        
-        if let body = physicsWorld.body(at: touchLocation) {
-            if body.node!.name == PaddleCategoryName {
-                print("Began touch on paddle")
-                isFingerOnPaddle = true
+        switch gameState.currentState {
+        case is WaitingForTap:
+            gameState.enter(Playing.self)
+            isFingerOnPaddle = true
+            
+        case is Playing:
+            let touch = touches.first
+            let touchLocation = touch!.location(in: self)
+            
+            if let body = physicsWorld.body(at: touchLocation) {
+                if body.node!.name == PaddleCategoryName {
+                    isFingerOnPaddle = true
+                }
             }
+            
+        default:
+            break
         }
     }
     
+    //i think this goes here or something so here goes nothing
+    override func update(_ currentTime: TimeInterval) {
+        gameState.update(deltaTime: currentTime)
+    }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         // 1
@@ -101,7 +114,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     physicsWorld.contactDelegate = self
     
     let ball = childNode(withName: BallCategoryName) as! SKSpriteNode
-    ball.physicsBody!.applyImpulse(CGVector(dx: 2.0, dy: -2.0))
+//    ball.physicsBody!.applyImpulse(CGVector(dx: 2.0, dy: -2.0))
     
     let bottomRect = CGRect(x: frame.origin.x, y: frame.origin.y, width: frame.size.width, height: 1)
     let bottom = SKNode()
@@ -141,6 +154,16 @@ ball.physicsBody!.contactTestBitMask = BottomCategory | BlockCategory
         addChild(block)
     }
     
+    
+    let gameMessage = SKSpriteNode(imageNamed: "TapToPlay")
+    gameMessage.name = GameMessageName
+    gameMessage.position = CGPoint(x: frame.midX, y: frame.midY)
+    gameMessage.zPosition = 4
+    gameMessage.setScale(0.0)
+    addChild(gameMessage)
+    
+    gameState.enter(WaitingForTap.self)
+    
   }
 
     
@@ -178,6 +201,14 @@ ball.physicsBody!.contactTestBitMask = BottomCategory | BlockCategory
         node.removeFromParent()
     }
 
+    
+    func randomFloat(from: CGFloat, to: CGFloat) -> CGFloat {
+        let rand: CGFloat = CGFloat(Float(arc4random()) / 0xFFFFFFFF)
+        return (rand) * (to - from) + from
+    }
+    
+    
+    
     
     
   
