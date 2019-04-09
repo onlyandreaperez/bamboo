@@ -21,20 +21,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ANDREAPEREZ" translatesAutoresizingMaskIntoConstraints="NO" id="ZWT-OH-0FS">
-                                <rect key="frame" x="0.0" y="147" width="375" height="353"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="375" id="kr7-cl-DAP"/>
-                                    <constraint firstAttribute="height" constant="353" id="wXG-ju-SIF"/>
-                                </constraints>
-                            </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ubL-dL-8Ai">
+                                <rect key="frame" x="74" y="269" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ANDREA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HS2-Ov-FDM">
+                                        <rect key="frame" x="68" y="48" width="105" height="33"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                        <color key="textColor" red="0.97745615239999994" green="0.59822976589999999" blue="0.85636967419999999" alpha="1" colorSpace="deviceRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="ZWT-OH-0FS" secondAttribute="trailing" id="77E-GU-vzV"/>
-                            <constraint firstItem="ZWT-OH-0FS" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="Q9d-tk-i1L"/>
-                            <constraint firstItem="ZWT-OH-0FS" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="127" id="bxm-a0-7Oz"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="ZWT-OH-0FS" secondAttribute="bottom" constant="167" id="sXk-Yp-FzZ"/>
-                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -42,7 +43,4 @@
             <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="ANDREAPEREZ" width="2160" height="1080"/>
-    </resources>
 </document>
