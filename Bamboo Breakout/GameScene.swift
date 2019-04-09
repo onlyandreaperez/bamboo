@@ -41,6 +41,10 @@ let BorderCategory : UInt32 = 0x1 << 4
 class GameScene: SKScene, SKPhysicsContactDelegate {
     var isFingerOnPaddle = false
 
+    lazy var gameState: GKStateMachine = GKStateMachine(states: [
+        WaitingForTap(scene: self),
+        Playing(scene: self),
+        GameOver(scene: self)])
     
     
     //adding here
@@ -51,7 +55,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let texture = SKTexture(imageNamed: textureName)
             let actionSequence = SKAction.sequence([SKAction.setTexture(texture),
                                                     SKAction.scale(to: 1.0, duration: 0.25)])
-            
+            run(gameWon ? gameWonSound : gameOverSound)
             gameOver.run(actionSequence)
             
         }
@@ -63,18 +67,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let bambooBreakSound = SKAction.playSoundFileNamed("BambooBreak", waitForCompletion: false)
     let gameWonSound = SKAction.playSoundFileNamed("game-won", waitForCompletion: false)
     let gameOverSound = SKAction.playSoundFileNamed("game-over", waitForCompletion: false)
-    
-    
-    
-    
-    
-    lazy var gameState: GKStateMachine = GKStateMachine(states: [
-        WaitingForTap(scene: self),
-        Playing(scene: self),
-        GameOver(scene: self)])
-    
-    
-    
+
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         switch gameState.currentState {
@@ -271,7 +264,6 @@ ball.physicsBody!.contactTestBitMask = BottomCategory | BlockCategory | BorderCa
     
     
     func isGameWon() -> Bool {
-    run(gameWon ? gameWonSound : gameOverSound)
         var numberOfBricks = 0
         self.enumerateChildNodes(withName: BlockCategoryName) {
             node, stop in
