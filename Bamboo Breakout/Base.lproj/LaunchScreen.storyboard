@@ -21,25 +21,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Andrea" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bky-GQ-Gkb">
-                                <rect key="frame" x="139" y="315" width="96" height="37"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
-                                <color key="textColor" red="0.97745615239999994" green="0.59822976589999999" blue="0.85636967419999999" alpha="1" colorSpace="deviceRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ANDREAPEREZ" translatesAutoresizingMaskIntoConstraints="NO" id="ZWT-OH-0FS">
+                                <rect key="frame" x="0.0" y="147" width="375" height="353"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="kr7-cl-DAP"/>
+                                    <constraint firstAttribute="height" constant="353" id="wXG-ju-SIF"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="bky-GQ-Gkb" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="123" id="Wkr-sT-slm"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="bky-GQ-Gkb" secondAttribute="trailing" constant="124" id="e50-Zd-dgI"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="bky-GQ-Gkb" secondAttribute="bottom" constant="315" id="tY3-Ui-xWx"/>
-                            <constraint firstItem="bky-GQ-Gkb" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="295" id="upo-UJ-PrU"/>
+                            <constraint firstAttribute="trailing" secondItem="ZWT-OH-0FS" secondAttribute="trailing" id="77E-GU-vzV"/>
+                            <constraint firstItem="ZWT-OH-0FS" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="Q9d-tk-i1L"/>
+                            <constraint firstItem="ZWT-OH-0FS" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="127" id="bxm-a0-7Oz"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="ZWT-OH-0FS" secondAttribute="bottom" constant="167" id="sXk-Yp-FzZ"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ANDREAPEREZ" width="2160" height="1080"/>
+    </resources>
 </document>
