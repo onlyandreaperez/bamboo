@@ -23,8 +23,9 @@
  * THE SOFTWARE.
  */ 
 
-import SpriteKit
 import GameplayKit
+import SpriteKit
+
 
 
 let BallCategoryName = "ball"
